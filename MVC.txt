@@ -1,0 +1,67 @@
+1
+$artist1 =new Artist();
+$artist1->setName('Queens of stone Age');
+$artist1->setUrl("https://qotsa.com");
+$manager->persist($artist1);
+$manager->flush();
+
+2
+php bin/console doctrine:fixtures:load
+ou
+php bin/console d:f:1
+
+3
+$artist1 =new Artist();
+
+$artist1->setName('Queens of The stone Age');
+$artist1->setUrl("https://qotsa.com");
+
+$manager->persist($artist1);
+$disc1=new Disc();
+$disc1->setTitle("Songs for Deaf");
+$disc1->setPicture("https://en.wikipedia.org/wiki/SOngs_for_the_Deaf#/media/File:Queens_of_the_Stone_Age_-_Songs_for_the_Deaf.png"_);
+$disc1->setLabel("Interscope Records");
+
+$manager->persist($disc1);
+
+$disc1->setARtist($artist1);
+ou
+$artist1->addDisc($disc1);
+
+$manager->flush();
+
+
+4
+include'record.php';
+
+$artistRepo = $manager->getRepository (Artist::class);
+
+foreach($artist as $artistSeul){
+$artistDB =new Artist();
+$artistDB
+-> setId($artistSeul['id])
+->setName($artistSeul['name])
+->setUrl($artistSeul['url]);
+
+$manager->persist($artistDB);
+
+$metadata=$manager->getClassMetaData(ARtist::class);
+$metadata->setIdGeneratorType(\Doctrine\ORM\Mapping\ClassMetaDatat::GENERATOR_TYPE_NONE);
+}
+$manager->flush();
+
+foreach($disc as $unDisc){
+    $discDB= new Disc();
+    $discDB
+    ->setTitle($unDisc['title'])
+    ->setLabel($unDisc['label'])
+    ->setYear($unDisc['year'])
+    ->setGenre($unDisc['genre'])
+    ->setPrice($unDisc['price'])
+    $artist = $artistRepos->find($discSeul['artiste_id]);
+    $discDb->setArtist($artist);
+    $manager->persist($discDB);  
+}
+$manager->flush();
+
+

@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+<div class="text-center ">
+<h1> Première page web avec symfony</h1>
+<p>Hello word !!!</p>
+{% for info in informations %}
+
+<li class="text-white">{{ info }}</li>
+
+{% endfor %}
+</div>
+{% endblock %}
