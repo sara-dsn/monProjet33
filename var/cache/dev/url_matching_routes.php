@@ -16,6 +16,7 @@ return [
         '/_profiler/open' => [[['_route' => '_profiler_open_file', '_controller' => 'web_profiler.controller.profiler::openAction'], null, null, null, false, false, null]],
         '/page1' => [[['_route' => 'app_page1', '_controller' => 'App\\Controller\\AccueilController::page1'], null, null, null, false, false, null]],
         '/page2' => [[['_route' => 'app_page2', '_controller' => 'App\\Controller\\AccueilController::page2'], null, null, null, false, false, null]],
+        '/contact' => [[['_route' => 'app_contact', '_controller' => 'App\\Controller\\ContactController::index'], null, null, null, false, false, null]],
     ],
     [ // $regexpList
         0 => '{^(?'

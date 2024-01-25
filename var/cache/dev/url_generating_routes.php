@@ -19,6 +19,8 @@ return [
     '_profiler_exception_css' => [['token'], ['_controller' => 'web_profiler.controller.exception_panel::stylesheet'], [], [['text', '/exception.css'], ['variable', '/', '[^/]++', 'token', true], ['text', '/_profiler']], [], [], []],
     'app_page1' => [[], ['_controller' => 'App\\Controller\\AccueilController::page1'], [], [['text', '/page1']], [], [], []],
     'app_page2' => [[], ['_controller' => 'App\\Controller\\AccueilController::page2'], [], [['text', '/page2']], [], [], []],
+    'app_contact' => [[], ['_controller' => 'App\\Controller\\ContactController::index'], [], [['text', '/contact']], [], [], []],
     'App\Controller\AccueilController::page1' => [[], ['_controller' => 'App\\Controller\\AccueilController::page1'], [], [['text', '/page1']], [], [], []],
     'App\Controller\AccueilController::page2' => [[], ['_controller' => 'App\\Controller\\AccueilController::page2'], [], [['text', '/page2']], [], [], []],
+    'App\Controller\ContactController::index' => [[], ['_controller' => 'App\\Controller\\ContactController::index'], [], [['text', '/contact']], [], [], []],
 ];

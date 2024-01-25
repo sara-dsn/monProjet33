@@ -135,6 +135,7 @@ class __TwigTemplate_2d61ad18e19a6a05f2b3adbb3fb14466 extends Template
 {% endfor %}
 </div>
 {% endblock %}
-", "accueil/page1.html.twig", "/home/sara/Bureau/monProjet3/monProjet3/templates/accueil/page1.html.twig");
+
+", "accueil/page1.html.twig", "/home/sara/Bureau/monProjet3/templates/accueil/page1.html.twig");
     }
 }

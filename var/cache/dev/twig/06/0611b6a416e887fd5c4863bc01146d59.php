@@ -72,6 +72,7 @@ class __TwigTemplate_932953854a01bdcdff2a75ff35f19e3a extends Template
         // line 18
         echo "    </head>
     <body>
+
     <nav class=\"navbar navbar-expand-lg bg-body-tertiary\">
   <div class=\"container-fluid\">
     <a class=\"navbar-brand\" href=\"#\">Navbar</a>
@@ -82,13 +83,13 @@ class __TwigTemplate_932953854a01bdcdff2a75ff35f19e3a extends Template
       <ul class=\"navbar-nav\">
         <li class=\"nav-item\">
           <a class=\"nav-link active\" aria-current=\"page\" href=\"";
-        // line 29
+        // line 30
         echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_page1");
         echo "\">Page 1</a>
         </li>
         <li class=\"nav-item\">
           <a class=\"nav-link\" href=\"";
-        // line 32
+        // line 33
         echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_page2");
         echo "\">Page 2</a>
         </li>
@@ -99,12 +100,12 @@ class __TwigTemplate_932953854a01bdcdff2a75ff35f19e3a extends Template
   </div>
 </nav>
         ";
-        // line 40
-        $this->displayBlock('body', $context, $blocks);
         // line 41
+        $this->displayBlock('body', $context, $blocks);
+        // line 42
         echo "        <script src=\"https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js\" integrity=\"sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL\" crossorigin=\"anonymous\"></script>
     ";
-        // line 43
+        // line 44
         echo "    </body>
 </html>
 ";
@@ -202,7 +203,7 @@ class __TwigTemplate_932953854a01bdcdff2a75ff35f19e3a extends Template
 
     }
 
-    // line 40
+    // line 41
     public function block_body($context, array $blocks = [])
     {
         $macros = $this->macros;
@@ -241,7 +242,7 @@ class __TwigTemplate_932953854a01bdcdff2a75ff35f19e3a extends Template
      */
     public function getDebugInfo()
     {
-        return array (  206 => 40,  187 => 15,  174 => 16,  172 => 15,  162 => 14,  149 => 11,  139 => 10,  120 => 5,  108 => 43,  105 => 41,  103 => 40,  92 => 32,  86 => 29,  73 => 18,  71 => 14,  68 => 13,  66 => 10,  62 => 9,  59 => 8,  54 => 5,  48 => 1,);
+        return array (  207 => 41,  188 => 15,  175 => 16,  173 => 15,  163 => 14,  150 => 11,  140 => 10,  121 => 5,  109 => 44,  106 => 42,  104 => 41,  93 => 33,  87 => 30,  73 => 18,  71 => 14,  68 => 13,  66 => 10,  62 => 9,  59 => 8,  54 => 5,  48 => 1,);
     }
 
     public function getSourceContext()
@@ -265,6 +266,7 @@ class __TwigTemplate_932953854a01bdcdff2a75ff35f19e3a extends Template
         {% endblock %}
     </head>
     <body>
+
     <nav class=\"navbar navbar-expand-lg bg-body-tertiary\">
   <div class=\"container-fluid\">
     <a class=\"navbar-brand\" href=\"#\">Navbar</a>
@@ -290,6 +292,6 @@ class __TwigTemplate_932953854a01bdcdff2a75ff35f19e3a extends Template
     {# {% block javascripts %}{% endblock %} #}
     </body>
 </html>
-", "base.html.twig", "/home/sara/Bureau/monProjet3/monProjet3/templates/base.html.twig");
+", "base.html.twig", "/home/sara/Bureau/monProjet3/templates/base.html.twig");
     }
 }
