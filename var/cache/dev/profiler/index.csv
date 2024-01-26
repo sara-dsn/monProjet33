@@ -85,3 +85,7 @@ dda5ff,127.0.0.1,GET,https://localhost:8000/contact,1706195698,,200,request
 4433a6,127.0.0.1,GET,https://localhost:8000/contact,1706197949,,200,request
 beb798,127.0.0.1,GET,https://localhost:8000/contact,1706198625,,200,request
 9f5208,127.0.0.1,GET,https://localhost:8000/contact,1706258750,,200,request
+dc5d8b,127.0.0.1,GET,http://127.0.0.1:45469/,1706262019,,404,request
+1d454b,127.0.0.1,GET,http://127.0.0.1:45469/accueil,1706262514,,200,request
+b023ea,127.0.0.1,GET,http://127.0.0.1:45469/accueil,1706265318,,200,request
+fb4786,127.0.0.1,GET,http://127.0.0.1:45469/accueil,1706265674,,200,request

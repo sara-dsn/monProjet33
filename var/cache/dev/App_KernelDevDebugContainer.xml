@@ -359,6 +359,8 @@
     <service id="App\Controller\AccueilController" class="App\Controller\AccueilController" public="true" autowire="true" autoconfigure="true">
       <tag name="controller.service_arguments"/>
       <tag name="container.service_subscriber"/>
+      <argument type="service" id="App\Repository\ArtistRepository"/>
+      <argument type="service" id="App\Repository\DiscRepository"/>
       <call method="setContainer">
         <argument type="service" id=".service_locator.O2p6Lk7.App\Controller\AccueilController"/>
       </call>

@@ -3,7 +3,6 @@
 namespace App\Entity;
 
 use App\Entity\Artist;
-use App\Entity\Disc;
 use Doctrine\ORM\Mapping as ORM;
 use App\Repository\DiscRepository;
 
