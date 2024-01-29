@@ -1,22 +1,22 @@
 <?php return array(
     'root' => array(
-        'pretty_version' => '1.0.0+no-version-set',
-        'version' => '1.0.0.0',
+        'pretty_version' => 'dev-main',
+        'version' => 'dev-main',
         'type' => 'project',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
-        'reference' => NULL,
+        'reference' => '389d8c55c2ba89445f4e36a434c7af1c0fb32dbb',
         'name' => '__root__',
         'dev' => true,
     ),
     'versions' => array(
         '__root__' => array(
-            'pretty_version' => '1.0.0+no-version-set',
-            'version' => '1.0.0.0',
+            'pretty_version' => 'dev-main',
+            'version' => 'dev-main',
             'type' => 'project',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),
-            'reference' => NULL,
+            'reference' => '389d8c55c2ba89445f4e36a434c7af1c0fb32dbb',
             'dev_requirement' => false,
         ),
         'composer/semver' => array(
@@ -678,7 +678,7 @@
             'install_path' => __DIR__ . '/../symfony/css-selector',
             'aliases' => array(),
             'reference' => 'd036c6c0d0b09e24a14a35f8292146a658f986e4',
-            'dev_requirement' => true,
+            'dev_requirement' => false,
         ),
         'symfony/debug-bundle' => array(
             'pretty_version' => 'v6.4.0',
@@ -1312,6 +1312,24 @@
             'aliases' => array(),
             'reference' => 'b2ad5003ca10d4ee50a12da31de12a5774ba6b96',
             'dev_requirement' => true,
+        ),
+        'tijsverkoyen/css-to-inline-styles' => array(
+            'pretty_version' => 'v2.2.7',
+            'version' => '2.2.7.0',
+            'type' => 'library',
+            'install_path' => __DIR__ . '/../tijsverkoyen/css-to-inline-styles',
+            'aliases' => array(),
+            'reference' => '83ee6f38df0a63106a9e4536e3060458b74ccedb',
+            'dev_requirement' => false,
+        ),
+        'twig/cssinliner-extra' => array(
+            'pretty_version' => 'v3.8.0',
+            'version' => '3.8.0.0',
+            'type' => 'library',
+            'install_path' => __DIR__ . '/../twig/cssinliner-extra',
+            'aliases' => array(),
+            'reference' => '259a4b861732545e0e1ecd43bf25b251494af45b',
+            'dev_requirement' => false,
         ),
         'twig/extra-bundle' => array(
             'pretty_version' => 'v3.8.0',

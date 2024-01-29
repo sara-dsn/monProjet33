@@ -23,7 +23,7 @@ class Artist
     #[ORM\Column(length: 255)]
     private ?string $URL = null;
 
-    #[ORM\OneToMany(mappedBy: 'artiste_id', targetEntity: Disc::class)]
+    #[ORM\OneToMany(mappedBy: 'artiste', targetEntity: Disc::class)]
     private Collection $discs;
 
     public function __construct()
@@ -84,15 +84,15 @@ class Artist
     }
     public function removeDisc(Disc $disc): static
     {
-    //  On vérifie si le disque $disc existe dans la collection $discs de l'artiste
-    if ($this->discs->removeElement($disc)) {
-        // Si le disque a été effectivement retiré, on poursuit
-        // On vérifie si le côté propriétaire de la relation (dans ce cas, le côté Disc) a l'artiste actuel
-        if ($disc->getArtistId() === $this) {
-            // Si oui, on défini l'artiste du disque sur null
-            $disc->setArtistId( null);
+        //  On vérifie si le disque $disc existe dans la collection $discs de l'artiste
+        if ($this->discs->removeElement($disc)) {
+            // Si le disque a été effectivement retiré, on poursuit
+            // On vérifie si le côté propriétaire de la relation (dans ce cas, le côté Disc) a l'artiste actuel
+            if ($disc->getArtistId() === $this) {
+                // Si oui, on défini l'artiste du disque sur null
+                $disc->setArtistId(null);
+            }
         }
-    }
 
         return $this;
     }

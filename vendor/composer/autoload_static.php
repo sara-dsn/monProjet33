@@ -35,7 +35,9 @@ class ComposerStaticInit08d08a250572e9f0aa23a2a648b9615b
         'T' => 
         array (
             'Twig\\Extra\\TwigExtraBundle\\' => 27,
+            'Twig\\Extra\\CssInliner\\' => 22,
             'Twig\\' => 5,
+            'TijsVerkoyen\\CssToInlineStyles\\' => 31,
         ),
         'S' => 
         array (
@@ -177,9 +179,17 @@ class ComposerStaticInit08d08a250572e9f0aa23a2a648b9615b
         array (
             0 => __DIR__ . '/..' . '/twig/extra-bundle',
         ),
+        'Twig\\Extra\\CssInliner\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/twig/cssinliner-extra',
+        ),
         'Twig\\' => 
         array (
             0 => __DIR__ . '/..' . '/twig/twig/src',
+        ),
+        'TijsVerkoyen\\CssToInlineStyles\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/tijsverkoyen/css-to-inline-styles/src',
         ),
         'Symfony\\UX\\Turbo\\' => 
         array (
