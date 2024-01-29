@@ -2,6 +2,7 @@
 
 namespace App\Entity;
 
+
 use App\Entity\Disc;
 use Doctrine\ORM\Mapping as ORM;
 use App\Repository\ArtistRepository;
@@ -81,15 +82,17 @@ class Artist
 
         return $this;
     }
-
     public function removeDisc(Disc $disc): static
     {
-        if ($this->discs->removeElement($disc)) {
-            // set the owning side to null (unless already changed)
-            if ($disc->getArtistId() === $this) {
-                $disc->setArtistId(null);
-            }
+    //  On vérifie si le disque $disc existe dans la collection $discs de l'artiste
+    if ($this->discs->removeElement($disc)) {
+        // Si le disque a été effectivement retiré, on poursuit
+        // On vérifie si le côté propriétaire de la relation (dans ce cas, le côté Disc) a l'artiste actuel
+        if ($disc->getArtistId() === $this) {
+            // Si oui, on défini l'artiste du disque sur null
+            $disc->setArtistId( null);
         }
+    }
 
         return $this;
     }

@@ -11,7 +11,7 @@ class DiscsFixtures extends Fixture
 {
     public function load(ObjectManager $manager): void
     {
-        include'record.php';
+        include 'record.php';
 
         $artistRepo = $manager->getRepository (Artist::class);
         

@@ -125,7 +125,7 @@ class Disc
         return $this->artiste;
     }
 
-    public function setArtistId(Artist $artiste_id): static
+    public function setArtistId(?Artist $artiste_id): static
     {
         $this->artiste = $artiste_id;
 

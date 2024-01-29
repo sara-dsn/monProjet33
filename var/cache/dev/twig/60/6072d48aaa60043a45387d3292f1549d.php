@@ -68,31 +68,38 @@ class __TwigTemplate_248d2fbdc6f772b0e561c3bb9521bc8f extends Template
         echo "<div class=\"container\">
     <div class=\"row mt-5\">
         <div class=\"col-10 mx-auto\">
-            <h1>Nombre d'artistes trouvés : ";
-        // line 7
-        echo twig_escape_filter($this->env, twig_length_filter($this->env, (isset($context["artistes"]) || array_key_exists("artistes", $context) ? $context["artistes"] : (function () { throw new RuntimeError('Variable "artistes" does not exist.', 7, $this->source); })())), "html", null, true);
-        echo "</h1>
-            ";
+            <h1>Nombre d'artistes trouvés : 
+             ";
         // line 8
+        echo twig_escape_filter($this->env, twig_length_filter($this->env, (isset($context["artistes"]) || array_key_exists("artistes", $context) ? $context["artistes"] : (function () { throw new RuntimeError('Variable "artistes" does not exist.', 8, $this->source); })())), "html", null, true);
+        echo "</h1>
+             ";
+        // line 9
         $context['_parent'] = $context;
-        $context['_seq'] = twig_ensure_traversable((isset($context["artistes"]) || array_key_exists("artistes", $context) ? $context["artistes"] : (function () { throw new RuntimeError('Variable "artistes" does not exist.', 8, $this->source); })()));
+        $context['_seq'] = twig_ensure_traversable((isset($context["artistes"]) || array_key_exists("artistes", $context) ? $context["artistes"] : (function () { throw new RuntimeError('Variable "artistes" does not exist.', 9, $this->source); })()));
         foreach ($context['_seq'] as $context["_key"] => $context["artiste"]) {
-            // line 9
-            echo "            <span class=\"d-block\">
-                ";
             // line 10
-            echo twig_escape_filter($this->env, twig_upper_filter($this->env, twig_get_attribute($this->env, $this->source, $context["artiste"], "name", [], "any", false, false, false, 10)), "html", null, true);
-            echo " - <b class=\"btn-primary p-1\">";
-            echo twig_escape_filter($this->env, twig_length_filter($this->env, twig_get_attribute($this->env, $this->source, $context["artiste"], "discs", [], "any", false, false, false, 10)), "html", null, true);
-            echo "</b> disques
-            </span>
+            echo "             <span class=\"d-block\">
+               ";
+            // line 11
+            echo twig_escape_filter($this->env, twig_upper_filter($this->env, twig_get_attribute($this->env, $this->source, $context["artiste"], "name", [], "any", false, false, false, 11)), "html", null, true);
+            echo " -
+               ";
+            // line 12
+            echo $this->extensions['Symfony\Bridge\Twig\Extension\DumpExtension']->dump($this->env, $context, twig_get_attribute($this->env, $this->source, $context["artiste"], "discs", [], "any", false, false, false, 12));
+            echo "
+
+                 ";
+            // line 15
+            echo "             </span>
             ";
         }
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['artiste'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 13
-        echo "        </div>
+        // line 16
+        echo " 
+        </div>
     </div>
 </div>
     ";
@@ -125,7 +132,7 @@ class __TwigTemplate_248d2fbdc6f772b0e561c3bb9521bc8f extends Template
      */
     public function getDebugInfo()
     {
-        return array (  95 => 13,  84 => 10,  81 => 9,  77 => 8,  73 => 7,  68 => 4,  58 => 3,  35 => 1,);
+        return array (  101 => 16,  94 => 15,  89 => 12,  85 => 11,  82 => 10,  78 => 9,  74 => 8,  68 => 4,  58 => 3,  35 => 1,);
     }
 
     public function getSourceContext()
@@ -136,12 +143,16 @@ class __TwigTemplate_248d2fbdc6f772b0e561c3bb9521bc8f extends Template
 <div class=\"container\">
     <div class=\"row mt-5\">
         <div class=\"col-10 mx-auto\">
-            <h1>Nombre d'artistes trouvés : {{ artistes | length }}</h1>
-            {% for artiste in artistes %}
-            <span class=\"d-block\">
-                {{ artiste.name | upper }} - <b class=\"btn-primary p-1\">{{ artiste.discs | length }}</b> disques
-            </span>
-            {% endfor %}
+            <h1>Nombre d'artistes trouvés : 
+             {{ artistes | length }}</h1>
+             {% for artiste in artistes %}
+             <span class=\"d-block\">
+               {{ artiste.name | upper }} -
+               {{ dump(artiste.discs) }}
+
+                 {# <b class=\"btn-primary p-1\">{{ artiste.discs | default('valeur_par_defaut') }}</b> disques #}
+             </span>
+            {% endfor %} 
         </div>
     </div>
 </div>
