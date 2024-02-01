@@ -16,11 +16,14 @@ class Contact
     private ?int $id = null;
 
     #[ORM\Column(length: 255)]
-    private ?string $objet = null;
+    private ?string $sujet = null;
+
+    #[ORM\Column(length: 255)]
+    private ?string $utilisateur = null;
 
     #[ORM\Column(length: 255)]
     #[Assert\Email(message: "Veuillez saisir une adresse e-mail valide.")]
-    private ?string $email = null;
+    private ?string $mail = null;
 
     #[ORM\Column(type: Types::TEXT, nullable: true)]
     private ?string $message = null;
@@ -30,26 +33,37 @@ class Contact
         return $this->id;
     }
 
-    public function getObjet(): ?string
+    public function getSujet(): ?string
     {
-        return $this->objet;
+        return $this->sujet;
     }
 
-    public function setObjet(string $objet): static
+    public function setSujet(string $sujet): static
     {
-        $this->objet = $objet;
+        $this->sujet = $sujet;
+
+        return $this;
+    }
+    public function getUtilisateur(): ?string
+    {
+        return $this->utilisateur;
+    }
+
+    public function setUtilisateur(string $utilisateur): static
+    {
+        $this->utilisateur = $utilisateur;
 
         return $this;
     }
 
-    public function getEmail(): ?string
+    public function getMail(): ?string
     {
-        return $this->email;
+        return $this->mail;
     }
 
-    public function setEmail(string $email): static
+    public function setMail(string $mail): static
     {
-        $this->email = $email;
+        $this->mail = $mail;
 
         return $this;
     }

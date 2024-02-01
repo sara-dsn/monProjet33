@@ -356,6 +356,12 @@
     <service id="App\Entity" class="App\Entity" abstract="true">
       <tag name="container.excluded" source="in &quot;config/services.yaml&quot;"/>
     </service>
+    <service id="App\DataFixtures\record" class="App\DataFixtures\record" abstract="true">
+      <tag name="container.excluded" source="in &quot;config/services.yaml&quot;"/>
+    </service>
+    <service id="App\DataFixtures\velvet" class="App\DataFixtures\velvet" abstract="true">
+      <tag name="container.excluded" source="in &quot;config/services.yaml&quot;"/>
+    </service>
     <service id="App\Controller\AccueilController" class="App\Controller\AccueilController" public="true" autowire="true" autoconfigure="true">
       <tag name="controller.service_arguments"/>
       <tag name="container.service_subscriber"/>
@@ -381,12 +387,6 @@
     <service id="App\DataFixtures\Jeu1" class="App\DataFixtures\Jeu1" autowire="true" autoconfigure="true">
       <tag name="doctrine.fixture.orm"/>
     </service>
-    <service id="App\DataFixtures\record" class="App\DataFixtures\record" autowire="true" autoconfigure="true">
-      <tag name="container.error" message="The autoloader expected class &quot;App\DataFixtures\record&quot; to be defined in file &quot;/home/sara/Bureau/monProjet3/vendor/composer/../../src/DataFixtures/record.php&quot;. The file was found but the class was not in it, the class name or namespace probably has a typo."/>
-    </service>
-    <service id="App\DataFixtures\velvet" class="App\DataFixtures\velvet" autowire="true" autoconfigure="true">
-      <tag name="container.error" message="The autoloader expected class &quot;App\DataFixtures\velvet&quot; to be defined in file &quot;/home/sara/Bureau/monProjet3/vendor/composer/../../src/DataFixtures/velvet.php&quot;. The file was found but the class was not in it, the class name or namespace probably has a typo."/>
-    </service>
     <service id="App\Form\ContactFormType" class="App\Form\ContactFormType" autowire="true" autoconfigure="true">
       <tag name="form.type"/>
     </service>
@@ -401,6 +401,10 @@
     <service id="App\Repository\DiscRepository" class="App\Repository\DiscRepository" autowire="true" autoconfigure="true">
       <tag name="doctrine.repository_service"/>
       <argument type="service" id="doctrine"/>
+    </service>
+    <service id="App\Service\MailService" class="App\Service\MailService" autowire="true" autoconfigure="true">
+      <argument type="service" id="parameter_bag"/>
+      <argument type="service" id="mailer.mailer"/>
     </service>
     <service id="argument_metadata_factory" class="Symfony\Component\HttpKernel\ControllerMetadata\ArgumentMetadataFactory"/>
     <service id="argument_resolver.backed_enum_resolver" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\BackedEnumValueResolver">
@@ -429,7 +433,7 @@
     </service>
     <service id="argument_resolver.service" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\ServiceValueResolver">
       <tag priority="-50" name="Symfony\Component\HttpKernel\Controller\ArgumentResolver\ServiceValueResolver">controller.argument_value_resolver</tag>
-      <argument type="service" id=".service_locator.AIZf_W2"/>
+      <argument type="service" id=".service_locator.U7ZMqLJ"/>
     </service>
     <service id="argument_resolver.default" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\DefaultValueResolver">
       <tag priority="-100" name="Symfony\Component\HttpKernel\Controller\ArgumentResolver\DefaultValueResolver">controller.argument_value_resolver</tag>
@@ -1228,6 +1232,8 @@
         <argument>/home/sara/Bureau/monProjet3/vendor/symfony/security-core/Resources/translations</argument>
       </argument>
       <argument type="collection">
+        <argument>/home/sara/Bureau/monProjet3/assets/img</argument>
+        <argument>/home/sara/Bureau/monProjet3/assets/styles</argument>
         <argument>/home/sara/Bureau/monProjet3/vendor/symfony/twig-bridge/Resources/views/Email</argument>
         <argument>/home/sara/Bureau/monProjet3/vendor/symfony/twig-bridge/Resources/views/Form</argument>
       </argument>
@@ -1254,6 +1260,8 @@
         <argument>/home/sara/Bureau/monProjet3/vendor/symfony/security-core/Resources/translations</argument>
       </argument>
       <argument type="collection">
+        <argument>/home/sara/Bureau/monProjet3/assets/img</argument>
+        <argument>/home/sara/Bureau/monProjet3/assets/styles</argument>
         <argument>/home/sara/Bureau/monProjet3/vendor/symfony/twig-bridge/Resources/views/Email</argument>
         <argument>/home/sara/Bureau/monProjet3/vendor/symfony/twig-bridge/Resources/views/Form</argument>
       </argument>
@@ -3301,7 +3309,7 @@
     </service>
     <service id="argument_resolver.not_tagged_controller" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\NotTaggedControllerValueResolver">
       <tag name="controller.argument_value_resolver" priority="-200"/>
-      <argument type="service" id=".service_locator.AIZf_W2"/>
+      <argument type="service" id=".service_locator.U7ZMqLJ"/>
     </service>
     <service id="debug.log_processor" class="Symfony\Bridge\Monolog\Processor\DebugProcessor">
       <tag name="kernel.reset" method="reset"/>
@@ -5722,6 +5730,9 @@
         <argument type="service" id="turbo.twig.extension"/>
       </call>
       <call method="addExtension">
+        <argument type="service" id="twig.extension.cssinliner"/>
+      </call>
+      <call method="addExtension">
         <argument type="service" id="stimulus.twig_extension"/>
       </call>
       <call method="addGlobal">
@@ -5774,6 +5785,8 @@
     <service id="twig.template_iterator" class="Symfony\Bundle\TwigBundle\TemplateIterator">
       <argument type="service" id="kernel"/>
       <argument type="collection">
+        <argument key="/home/sara/Bureau/monProjet3/assets/img">images</argument>
+        <argument key="/home/sara/Bureau/monProjet3/assets/styles">css</argument>
         <argument key="/home/sara/Bureau/monProjet3/vendor/symfony/twig-bridge/Resources/views/Email">email</argument>
         <argument key="/home/sara/Bureau/monProjet3/vendor/symfony/twig-bridge/Resources/views/Form">null</argument>
       </argument>
@@ -5790,6 +5803,14 @@
       <tag name="twig.loader"/>
       <argument type="collection"/>
       <argument>/home/sara/Bureau/monProjet3</argument>
+      <call method="addPath">
+        <argument>/home/sara/Bureau/monProjet3/assets/img</argument>
+        <argument>images</argument>
+      </call>
+      <call method="addPath">
+        <argument>/home/sara/Bureau/monProjet3/assets/styles</argument>
+        <argument>css</argument>
+      </call>
       <call method="addPath">
         <argument>/home/sara/Bureau/monProjet3/vendor/doctrine/doctrine-bundle/Resources/views</argument>
         <argument>Doctrine</argument>
@@ -6122,6 +6143,9 @@
       <argument>null</argument>
     </service>
     <service id="twig.missing_extension_suggestor" class="Twig\Extra\TwigExtraBundle\MissingExtensionSuggestor"/>
+    <service id="twig.extension.cssinliner" class="Twig\Extra\CssInliner\CssInlinerExtension">
+      <tag name="twig.extension"/>
+    </service>
     <service id="security.authorization_checker" class="Symfony\Component\Security\Core\Authorization\AuthorizationChecker">
       <argument type="service" id="security.token_storage"/>
       <argument type="service" id="debug.security.access.decision_manager"/>
@@ -7436,21 +7460,23 @@
         <argument key="loader" type="service_closure" id=".errored..service_locator.y4_Zrx..Symfony\Component\Config\Loader\LoaderInterface"/>
       </argument>
     </service>
-    <service id=".service_locator.CsMkqUa" class="Symfony\Component\DependencyInjection\ServiceLocator">
+    <service id=".service_locator.2TlXYmE" class="Symfony\Component\DependencyInjection\ServiceLocator">
       <tag name="container.service_locator"/>
       <argument type="collection">
+        <argument key="MailService" type="service_closure" id="App\Service\MailService"/>
         <argument key="entityManager" type="service_closure" id="doctrine.orm.default_entity_manager"/>
+        <argument key="mailer" type="service_closure" id="mailer.mailer"/>
       </argument>
     </service>
-    <service id=".service_locator.AIZf_W2" class="Symfony\Component\DependencyInjection\ServiceLocator">
+    <service id=".service_locator.U7ZMqLJ" class="Symfony\Component\DependencyInjection\ServiceLocator">
       <tag name="container.service_locator"/>
       <argument type="collection">
-        <argument key="App\Controller\ContactController::index" type="service_closure" id=".service_locator.CsMkqUa"/>
+        <argument key="App\Controller\ContactController::index" type="service_closure" id=".service_locator.2TlXYmE"/>
         <argument key="App\Kernel::loadRoutes" type="service_closure" id=".service_locator.y4_Zrx."/>
         <argument key="App\Kernel::registerContainerConfiguration" type="service_closure" id=".service_locator.y4_Zrx."/>
         <argument key="kernel::loadRoutes" type="service_closure" id=".service_locator.y4_Zrx."/>
         <argument key="kernel::registerContainerConfiguration" type="service_closure" id=".service_locator.y4_Zrx."/>
-        <argument key="App\Controller\ContactController:index" type="service_closure" id=".service_locator.CsMkqUa"/>
+        <argument key="App\Controller\ContactController:index" type="service_closure" id=".service_locator.2TlXYmE"/>
         <argument key="kernel:loadRoutes" type="service_closure" id=".service_locator.y4_Zrx."/>
         <argument key="kernel:registerContainerConfiguration" type="service_closure" id=".service_locator.y4_Zrx."/>
       </argument>
@@ -9601,7 +9627,7 @@
     <service id="Psr\Log\LoggerInterface" alias="monolog.logger"/>
     <service id="container.env_var_processors_locator" alias=".service_locator.w7.f4fT" public="true"/>
     <service id="twig.loader.filesystem" alias="twig.loader.native_filesystem"/>
-    <service id="argument_resolver.controller_locator" alias=".service_locator.AIZf_W2"/>
+    <service id="argument_resolver.controller_locator" alias=".service_locator.U7ZMqLJ"/>
     <service id="doctrine.id_generator_locator" alias=".service_locator.KLVvNIq"/>
     <service id="twig.loader" alias="twig.loader.native_filesystem"/>
     <service id="Psr\Log\LoggerInterface $requestLogger" alias="monolog.logger.request"/>
@@ -9625,7 +9651,8 @@
     <service id=".service_locator.80edgLI" alias="messenger.receiver_locator"/>
     <service id=".service_locator.h8Jkkd2" alias="messenger.retry_strategy_locator"/>
     <service id=".service_locator.bJ.4HC5" alias=".service_locator.w7.f4fT"/>
-    <service id=".service_locator.28tmj40" alias=".service_locator.AIZf_W2"/>
+    <service id=".service_locator.3hLS5NV" alias=".service_locator.2TlXYmE"/>
+    <service id=".service_locator.b3087Vu" alias=".service_locator.U7ZMqLJ"/>
     <service id=".service_locator.BFrsqsn" alias=".service_locator.F9PKc.7"/>
     <service id=".service_locator.ZtNXG3m" alias=".service_locator.HT2oI3k"/>
     <service id=".service_locator.XtmiKbi" alias=".service_locator.MfxSDRP"/>
@@ -9651,7 +9678,7 @@
     <service id="doctrine.orm.default_metadata_driver" alias=".doctrine.orm.default_metadata_driver"/>
     <service id="security.event_dispatcher.main" alias="debug.security.event_dispatcher.main"/>
     <service id=".service_locator.gFlme_s" alias=".service_locator.y4_Zrx."/>
-    <service id=".service_locator.9e2t_lq" alias=".service_locator.CsMkqUa"/>
+    <service id=".service_locator.7QEA8gL" alias=".service_locator.2TlXYmE"/>
     <service id=".service_locator.Q1z.f9O" alias=".service_locator.O2p6Lk7"/>
     <service id=".service_locator.dGUCsbe" alias=".service_locator.oR77BOj"/>
     <service id=".service_locator.u6DWx23" alias=".service_locator.cXsfP3P"/>

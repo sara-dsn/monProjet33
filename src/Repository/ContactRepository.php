@@ -2,7 +2,6 @@
 
 namespace App\Repository;
 
-use templates\base;
 use App\Entity\Contact;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;

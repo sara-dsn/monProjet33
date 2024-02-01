@@ -14,9 +14,9 @@ return [
         '/_profiler/phpinfo' => [[['_route' => '_profiler_phpinfo', '_controller' => 'web_profiler.controller.profiler::phpinfoAction'], null, null, null, false, false, null]],
         '/_profiler/xdebug' => [[['_route' => '_profiler_xdebug', '_controller' => 'web_profiler.controller.profiler::xdebugAction'], null, null, null, false, false, null]],
         '/_profiler/open' => [[['_route' => '_profiler_open_file', '_controller' => 'web_profiler.controller.profiler::openAction'], null, null, null, false, false, null]],
-        '/accueil' => [[['_route' => 'app_accueil', '_controller' => 'App\\Controller\\AccueilController::index'], null, null, null, false, false, null]],
-        '/page1' => [[['_route' => 'app_page1', '_controller' => 'App\\Controller\\AccueilController::page1'], null, null, null, false, false, null]],
-        '/page2' => [[['_route' => 'app_page2', '_controller' => 'App\\Controller\\AccueilController::page2'], null, null, null, false, false, null]],
+        '/' => [[['_route' => 'app_accueil', '_controller' => 'App\\Controller\\AccueilController::index'], null, null, null, false, false, null]],
+        '/premierePage' => [[['_route' => 'app_page1', '_controller' => 'App\\Controller\\AccueilController::page1'], null, null, null, false, false, null]],
+        '/info' => [[['_route' => 'app_page2', '_controller' => 'App\\Controller\\AccueilController::page2'], null, null, null, false, false, null]],
         '/contact' => [[['_route' => 'app_contact', '_controller' => 'App\\Controller\\ContactController::index'], null, null, null, false, false, null]],
     ],
     [ // $regexpList

@@ -20,7 +20,7 @@ class AccueilController extends AbstractController
       $this->artistRepo= $artistRepo;
       $this->discRepo=$discRepo;  
     }
-    #[Route('/accueil', name: 'app_accueil')]
+    #[Route('/', name: 'app_accueil')]
     public function index(): Response
     {
 
@@ -31,24 +31,38 @@ return $this->render('accueil/index.html.twig',[
     'artistes'=>$artistes
 ]);
     }
-    #[Route('/page1', name: 'app_page1')]
+    #[Route('/premierePage', name: 'app_page1')]
     public function page1(): Response
     {
         $info=['Loper','Dave','daveloper@code.com','01/01/1970'];
-        return $this->render('accueil/page1.html.twig', [
-            'controller_name' => 'AccueilController',
+        return $this->render('accueil/premierePage.html.twig', [
             'informations'=> $info,
         ]);
     }
 
 
-    #[Route('/page2', name: 'app_page2')]
+    #[Route('/info', name: 'app_page2')]
     public function page2(): Response
     {
         $info=['lastname'=>'dosana','firstname'=>'sara','email'=>'dosana@gmail.fr','birthdate'=>'24/09/2000'];
-        return $this->render('accueil/page2.html.twig', [
-            'controller_name' => 'AccueilController',
+        return $this->render('accueil/info.html.twig', [
             'informations'=>$info,
         ]);
     }
+    
+    // #[Route('/contact_email', name: 'app_page3')]
+    // public function page3(): Response
+    // {
+    //     return $this->render('emails/contact_email.html.twig', [
+    //     ]);
+    // }
+    // #[Route('/ContactFormType.php', name: 'app_page4')]
+    // public function page4(): Response
+    // {
+    //     return $this->render('Form/ContactFormType.php', [
+    //         $email=$_POST["envoyer"],
+    //         'mail' => $email
+    //     ]);
+    // }
+    
 }
